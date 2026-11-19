@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variedades de cacao · CACAO, archivo vivo de Ecuador</title>
+  <meta name="description" content="Diez fichas de variedades de cacao ecuatoriano: notas organolépticas, provincia, altitud y usos. Filtra por tipo o territorio y abre cada ficha.">
+  <meta name="theme-color" content="#f9f7f2">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+          <path d="M14 2.5 C8 7, 7 17, 14 24.5 C21 17, 20 7, 14 2.5 Z" fill="var(--gold)"/>
+          <path d="M14 2.5 C10.5 9, 10.5 18, 14 24.5 M14 2.5 C17.5 9, 17.5 18, 14 24.5 M14 2.5 L14 24.5" fill="none" stroke="var(--brand)" stroke-width="1.2"/>
+          <path d="M14 2.5 C14 1, 15 0.5, 16 0.5" fill="none" stroke="var(--leaf, #214728)" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><span class="brand__name">CACAO</span><span class="brand__sub">Archivo vivo</span></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="razas.html" aria-current="page">Variedades</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
+          <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <section class="page-intro">
+      <div class="wrap">
+        <p class="eyebrow">Catálogo botánico de diez fichas</p>
+        <h1>Variedades de cacao, <em>una por una</em>.</h1>
+        <p class="lede">Cada ficha reúne notas de cata, provincia, altitud y usos gastronómicos. Selecciona el tipo de grano o la región del Ecuador para filtrar la galería al instante.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="galeria-title">
+      <div class="wrap">
+        <h2 id="galeria-title" class="visually-hidden">Galería de variedades de cacao</h2>
+
+        <!-- Barra de filtros con selectores -->
+        <div class="filters-bar reveal">
+          <div class="filter-field">
+            <label for="filter-tipo">Tipo o Variedad</label>
+            <select class="filter-select" id="filter-tipo">
+              <option value="todos">Todos los tipos (10)</option>
+              <option value="nacional">Nacional Fino de Aroma (4)</option>
+              <option value="arriba">Arriba Fluvial (2)</option>
+              <option value="ccn51">CCN-51 / Clon Productivo (1)</option>
+              <option value="criollo">Criollo Ancestral (1)</option>
+              <option value="amazonico">Silvestre Amazónico (1)</option>
+              <option value="trinitario">Trinitario / Híbrido (1)</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-region">Región del Ecuador</label>
+            <select class="filter-select" id="filter-region">
+              <option value="todas">Todas las regiones (10)</option>
+              <option value="costa">Costa / Litoral (5)</option>
+              <option value="amazonia">Amazonía / Oriente (3)</option>
+              <option value="sierra">Sierra y Valles (2)</option>
+            </select>
+          </div>
+
+          <div class="filters-bar__reset">
+            <button class="link-reset" id="clear-filters" type="button" disabled>Limpiar filtros</button>
+          </div>
+        </div>
+
+        <div class="filters__status-row">
+          <p id="result-count" role="status" aria-live="polite">Mostrando <strong>10</strong> de 10 variedades</p>
+          <p class="filter-help">Usa los selectores para explorar por características genéticas o geográficas.</p>
+        </div>
+
+        <ul class="races-grid" id="races-grid">
+          <li>
+            <article class="race-card" id="nacional" data-tipo="nacional" data-tipo-label="Nacional Fino de Aroma" data-region="costa" data-region-label="Los Ríos, Vinces, Ecuador" data-alt="10–250 m" data-uses="Chocolate fino 70–85%, nibs de cata, licor de cacao" data-desc="El grano insignia del Ecuador. Reconocido internacionalmente por su perfil organoléptico complejo con perfume floral a jazmín, azahar y frutas secas." data-fact="Vinces fue apodado «París Chiquito» a fines del siglo XIX por las familias cacaoteras que viajaban a Francia durante el auge." data-img="assets/img/fotos/nacional.webp" data-img-alt="Mazorcas doradas de Cacao Nacional Fino de Aroma.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 01</span>
+                <img class="race-card__img" src="assets/img/fotos/nacional.webp" alt="Mazorcas doradas de Cacao Nacional Fino de Aroma." width="900" height="675" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#e9a23b;"></span>Fino de Aroma</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Los Ríos, Vinces</p>
+                <h3 class="race-card__title">Nacional Fino de Aroma</h3>
+                <p class="race-card__note">La variedad insignia del Ecuador: perfume floral a jazmín, miel silvestre y notas frutales únicas en el mundo.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="nacional" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="arriba" data-tipo="arriba" data-tipo-label="Arriba Fluvial" data-region="costa" data-region-label="Guayas, Babahoyo y Daule, Ecuador" data-alt="0–300 m" data-uses="Coberturas de alta pastelería, bombones de origen" data-desc="Cacao histórico cosechado en las riberas fluviales del Guayas. Destaca por su acidez brillante, notas de madera noble y sutil toque de malta." data-fact="El nombre «Arriba» nació cuando los comerciantes europeos preguntaban el origen del cacao y los boteros decían «de río arriba de Guayaquil»." data-img="assets/img/fotos/arriba.webp" data-img-alt="Mazorcas maduras de Cacao Arriba Fluvial.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 02</span>
+                <img class="race-card__img" src="assets/img/fotos/arriba.webp" alt="Mazorcas maduras de Cacao Arriba Fluvial." width="900" height="675" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#b36e12;"></span>Arriba Fluvial</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Cuenca Fluvial del Guayas</p>
+                <h3 class="race-card__title">Arriba Fluvial</h3>
+                <p class="race-card__note">El grano que dio origen a la época del Gran Cacao: notas de madera noble, cacao tostado y acidez equilibrada.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="arriba" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="ccn51" data-tipo="ccn51" data-tipo-label="CCN-51 Clon" data-region="costa" data-region-label="Naranjal, Guayas, Ecuador" data-alt="0–600 m" data-uses="Barras robustas, chocolatería industrial, mezclas" data-desc="Clon de alta productividad y resistencia desarrollado en 1965 por el científico ambateño Homero Castro. Con fermentación cuidada entrega notas a frutos secos y cacao franco." data-fact="Sus siglas corresponden a «Colección Castro Naranjal 51». Su productividad salvó a miles de familias de la quiebra tras plagas devastadoras." data-img="assets/img/fotos/ccn51.webp" data-img-alt="Mazorca rojiza alargada de cacao CCN-51.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 03</span>
+                <img class="race-card__img" src="assets/img/fotos/ccn51.webp" alt="Mazorca rojiza alargada de cacao CCN-51." width="900" height="600" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#a3231b;"></span>CCN-51</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Naranjal, Guayas</p>
+                <h3 class="race-card__title">CCN-51</h3>
+                <p class="race-card__note">Desarrollado en 1965 por el científico ecuatoriano Homero Castro: mazorcas rojas de alta productividad y cuerpo vigoroso.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="ccn51" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="manabi" data-tipo="nacional" data-tipo-label="Nacional de Manabí" data-region="costa" data-region-label="Chone y Calceta, Manabí, Ecuador" data-alt="50–400 m" data-uses="Chocolate tradicional de taza, barras 65%, dulces manabitas" data-desc="Selección campesina de árboles centenarios con mazorcas amarillo oro. Ofrece sabores profundos a plátano maduro, panela y sutil cacao tostado." data-fact="En Chone existen fincas que preservan árboles de más de 80 años de edad que siguen produciendo frutos aromáticos." data-img="assets/img/fotos/mazorca-amarilla.webp" data-img-alt="Mazorca amarilla madura de Cacao Nacional de Manabí.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 04</span>
+                <img class="race-card__img" src="assets/img/fotos/mazorca-amarilla.webp" alt="Mazorca amarilla madura de Cacao Nacional de Manabí." width="900" height="596" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#e9a23b;"></span>Nacional Oro</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Chone, Manabí</p>
+                <h3 class="race-card__title">Nacional de Manabí</h3>
+                <p class="race-card__note">Selección campesina de árboles centenarios con mazorcas amarillo oro y notas a fruta dulce y panela.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="manabi" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="amazonico" data-tipo="amazonico" data-tipo-label="Silvestre Amazónico" data-region="amazonia" data-region-label="Archidona, Napo, Amazonía" data-alt="250–800 m" data-uses="Chocolate silvestre orgánico, manteca virgen, bebidas ceremoniales" data-desc="Cultivado en chakras tradicionales kichwas bajo la sombra de la selva virgen. Presenta notas herbáceas, carambola silvestre y acidez cítrica refrescante." data-fact="El sistema de chakra kichwa del Napo fue reconocido por la FAO como Sistema Importante del Patrimonio Agrícola Mundial (SIPAM)." data-img="assets/img/fotos/abierto.webp" data-img-alt="Mazorca de cacao silvestre abierta mostrando mucílago fresco.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 05</span>
+                <img class="race-card__img" src="assets/img/fotos/abierto.webp" alt="Mazorca de cacao silvestre abierta mostrando mucílago fresco." width="900" height="675" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#214728;"></span>Amazónico</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Archidona, Napo</p>
+                <h3 class="race-card__title">Silvestre Amazónico</h3>
+                <p class="race-card__note">Cultivado bajo la selva en chakras kichwas ancestrales: notas herbales, cítricas y cacao en estado puro.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="amazonico" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="esmeraldas" data-tipo="criollo" data-tipo-label="Criollo Ancestral" data-region="costa" data-region-label="San Lorenzo, Esmeraldas, Ecuador" data-alt="0–200 m" data-uses="Chocolate single-origin 70%, trufas artesanales" data-desc="Cacao de bosque lluvioso tropical con almendras de tonalidad clara y textura sedosa. Desarrolla aromas delicados a flor de azahar, miel de monte y lima dulce." data-fact="Las comunidades afroecuatorianas del río Cayapas conservan huertos familiares donde el cacao convive con árboles maderables gigantes." data-img="assets/img/fotos/arbol.webp" data-img-alt="Árbol de cacao en bosque húmedo de Esmeraldas.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 06</span>
+                <img class="race-card__img" src="assets/img/fotos/arbol.webp" alt="Árbol de cacao en bosque húmedo de Esmeraldas." width="900" height="600" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#ded7c8;"></span>Criollo</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">San Lorenzo, Esmeraldas</p>
+                <h3 class="race-card__title">Criollo de Esmeraldas</h3>
+                <p class="race-card__note">Almendras claras de bosque húmedo tropical: textura sedosa con notas florales, miel de monte y lima dulce.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="esmeraldas" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="choco" data-tipo="nacional" data-tipo-label="Nacional de Altura" data-region="sierra" data-region-label="Nanegalito, Chocó Andino, Pichincha" data-alt="800–1 300 m" data-uses="Barras de micro-lote, nibs tostados caramelizados" data-desc="Crece en el bosque nublado del Chocó Andino, donde la niebla y el frío relativo prolongan la maduración del fruto, concentrando azúcares y notas de mora silvestre y café suave." data-fact="La Reserva de Biósfera del Chocó Andino de Pichincha alberga microclimas ideales para cacaos de montaña únicos en Sudamérica." data-img="assets/img/fotos/cosecha.webp" data-img-alt="Cosecha de mazorcas de cacao fresco en el Chocó Andino.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 07</span>
+                <img class="race-card__img" src="assets/img/fotos/cosecha.webp" alt="Cosecha de mazorcas de cacao fresco en el Chocó Andino." width="900" height="675" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#e9a23b;"></span>Chocó Andino</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Nanegalito, Pichincha</p>
+                <h3 class="race-card__title">Cacao del Chocó Andino</h3>
+                <p class="race-card__note">Maduración lenta entre niebla andina: notas concentradas de mora silvestre, café tostado y caramelo.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="choco" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="palanda" data-tipo="nacional" data-tipo-label="Porcelana Milenario" data-region="amazonia" data-region-label="Palanda, Zamora Chinchipe, Ecuador" data-alt="700–1 200 m" data-uses="Chocolatería de autor, barras de cata arqueológica" data-desc="Variedad de almendra marfil y baja astringencia, descendiente del cacao que la cultura Mayo-Chinchipe consumía hace 53 siglos en vasijas ceremoniales." data-fact="Pruebas de carbono-14 en el sitio arqueológico Santa Ana-La Florida confirmaron el uso del cacao en el 3.300 a. C." data-img="assets/img/fotos/granos.webp" data-img-alt="Granos secos fermentados de cacao de Palanda.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 08</span>
+                <img class="race-card__img" src="assets/img/fotos/granos.webp" alt="Granos secos fermentados de cacao de Palanda." width="800" height="578" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#f9f7f2;"></span>Mayo-Chinchipe</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Palanda, Zamora Chinchipe</p>
+                <h3 class="race-card__title">Porcelana de Mayo-Chinchipe</h3>
+                <p class="race-card__note">Almendras marfil de la cuna del cacao: baja astringencia con notas a nuez dulce y vainilla natural.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="palanda" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="orense" data-tipo="trinitario" data-tipo-label="Trinitario Orense" data-region="costa" data-region-label="Santa Rosa y Arenillas, El Oro, Ecuador" data-alt="20–450 m" data-uses="Praliné, coberturas de repostería, barras especiadas" data-desc="Grano de gran tamaño adaptado a los valles costeros secos del sur. Despliega notas profundas de tabaco rubio, higo deshidratado y especias dulces." data-fact="Los suelos aluviales ricos en potasio de la cuenca baja orense aportan un retrogusto mineral muy apreciado por chocolateros suizos." data-img="assets/img/fotos/tostado.webp" data-img-alt="Granos tostados de Cacao Trinitario Orense.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 09</span>
+                <img class="race-card__img" src="assets/img/fotos/tostado.webp" alt="Granos tostados de Cacao Trinitario Orense." width="900" height="600" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#8c381c;"></span>Trinitario</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Santa Rosa, El Oro</p>
+                <h3 class="race-card__title">Trinitario Orense</h3>
+                <p class="race-card__note">Grano generoso de valles aluviales: retrogusto prolongado con notas a higo maduro, tabaco rubio y especias.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="orense" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="race-card" id="loja" data-tipo="arriba" data-tipo-label="Arriba de Valles Interandinos" data-region="sierra" data-region-label="Catamayo y Malacatos, Loja, Ecuador" data-alt="900–1 600 m" data-uses="Pasta pura artesanal, chocolate caliente tradicional de taza" data-desc="Adaptado a los valles cálidos de la provincia de Loja, protegidos de los vientos fríos andinos. Aporta aromas acaramelados, flor de café y ciruela pasa." data-fact="En Loja las abuelas muelen tradicionalmente este grano en metates de piedra con panela y canela recién tostada." data-img="assets/img/fotos/botanico.webp" data-img-alt="Lámina botánica del Theobroma cacao de valles interandinos.">
+              <div class="race-card__media">
+                <span class="race-card__no" aria-hidden="true">N.º 10</span>
+                <img class="race-card__img" src="assets/img/fotos/botanico.webp" alt="Lámina botánica del Theobroma cacao de valles interandinos." width="900" height="601" loading="lazy">
+                <span class="race-card__color"><span class="dot" style="--c:#b36e12;"></span>Valle Andino</span>
+              </div>
+              <div class="race-card__body">
+                <p class="race-card__kicker">Catamayo, Loja</p>
+                <h3 class="race-card__title">Cacao de Valles de Loja</h3>
+                <p class="race-card__note">Cultivado en microclimas templados interandinos: notas de flor de cafeto, panela fundida y ciruela pasa.</p>
+                <div class="race-card__foot"><button class="race-card__btn" type="button" data-open-race="loja" aria-haspopup="dialog">Abrir ficha <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <div class="empty" id="empty-state" hidden>
+          <p><strong>No hay variedades con esa combinación de filtros.</strong><br>Selecciona otro tipo, otra región o limpia los filtros para volver a ver las diez fichas.</p>
+          <button class="btn btn--ghost btn--sm" type="button" id="empty-reset">Restablecer filtros</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="ficha" id="ficha" aria-labelledby="ficha-title">
+    <form method="dialog">
+      <button class="icon-btn ficha__close" aria-label="Cerrar ficha">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+    <div class="ficha__layout">
+      <div class="ficha__media">
+        <img id="ficha-img" src="assets/img/fotos/nacional.webp" alt="" width="900" height="675">
+      </div>
+      <div class="ficha__body">
+        <p class="eyebrow" id="ficha-no">Ficha</p>
+        <h2 id="ficha-title">Nombre de la variedad</h2>
+        <dl class="ficha__meta">
+          <div><dt>Provincia / Región</dt><dd id="ficha-region">—</dd></div>
+          <div><dt>Tipo botánico</dt><dd id="ficha-color">—</dd></div>
+          <div><dt>Altitud</dt><dd id="ficha-alt">—</dd></div>
+          <div><dt>Usos y notas</dt><dd id="ficha-uses">—</dd></div>
+        </dl>
+        <p id="ficha-desc">—</p>
+        <div class="ficha__fact"><strong>Dato de archivo</strong><p id="ficha-fact">—</p></div>
+        <div class="ficha__nav">
+          <button class="btn btn--ghost btn--sm" id="ficha-prev" type="button">← Anterior</button>
+          <span class="ficha__count" id="ficha-count">1 / 10</span>
+          <button class="btn btn--ghost btn--sm" id="ficha-next" type="button">Siguiente →</button>
+        </div>
+        <p class="visually-hidden" id="ficha-status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <svg class="brand__mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+              <path d="M14 2.5 C8 7, 7 17, 14 24.5 C21 17, 20 7, 14 2.5 Z" fill="var(--gold)"/>
+              <path d="M14 2.5 C10.5 9, 10.5 18, 14 24.5 M14 2.5 C17.5 9, 17.5 18, 14 24.5 M14 2.5 L14 24.5" fill="none" stroke="var(--brand)" stroke-width="1.2"/>
+              <path d="M14 2.5 C14 1, 15 0.5, 16 0.5" fill="none" stroke="var(--leaf, #214728)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span class="brand__text"><span class="brand__name">CACAO</span><span class="brand__sub">Archivo vivo</span></span>
+          </a>
+          <p>Un archivo digital sobre el cacao ecuatoriano y su origen milenario. Proyecto académico de Desarrollo de Aplicaciones Web.</p>
+        </div>
+
+        <nav class="footer" aria-label="Recorrido del archivo">
+          <h2>Recorrido</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="razas.html">Variedades</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer">
+          <h2>Fuentes</h2>
+          <ul>
+            <li><a href="https://www.iniap.gob.ec/" rel="noopener" target="_blank">INIAP Ecuador</a></li>
+            <li><a href="https://www.patrimoniocultural.gob.ec/" rel="noopener" target="_blank">INPC</a></li>
+            <li><a href="https://www.nature.com/articles/s41559-018-0697-4" rel="noopener" target="_blank">Nature: Mayo-Chinchipe</a></li>
+          </ul>
+        </div>
+
+        <div class="footer">
+          <h2>Sobre el archivo</h2>
+          <ul>
+            <li>Contenido divulgativo con fines educativos.</li>
+            <li><a href="creditos.html">Créditos de las imágenes</a></li>
+            <li><a href="#contenido">Volver arriba ↑</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026. Proyecto académico DAW. HTML, CSS y JavaScript, sin frameworks.</p>
+        <p>Fotografías libres de Wikimedia Commons.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
